@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body { 
+    font-family: Arial, 
+    sans-serif; 
+    background:#f4f4f4; 
+    margin:0; 
+    padding:0;
+ }
+  header { 
+    background:#222;
+    color:#fff;
+    text-align:center; 
+    padding:20px;
+ } 
+  h1 { 
+    margin:0; 
+}
+  .container {
+     max-width: 500px; 
+     margin:30px auto;
+      background:#fff; 
+      padding:150px; 
+      border-radius:20px; 
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+       text-align:center;
+     }
+  label {
+     font-weight:bold; 
+     display:block; 
+     margin-bottom:10px; }
+  select, button { 
+    width:100%; 
+    padding:10px; 
+    margin-bottom:20px; 
+    border:1px solid #ccc; 
+    border-radius:5px; 
+    font-size:16px; }
+  .agent-code { 
+    font-size:18px; 
+    font-weight:bold; 
+    color:#333; 
+    background:#e9ecef; 
+    padding:10px; 
+    border-radius:5px; 
+    display:none; 
+    margin-bottom:20px; }
+  .back-btn { 
+    display:inline-block; 
+    width:100%; 
+    padding:10px; 
+    background:#007bff; 
+    color:#fff; 
+    border:none; 
+    border-radius:5px; 
+    font-size:16px; 
+    text-decoration:none; 
+    cursor:pointer; 
+    transition:background .3s; }
+  .back-btn:hover { 
+    background:#0056b3; }
+  footer { 
+    text-align:center; 
+    padding:10px; 
+    background:#222; 
+    color:#fff; 
+    position:relative; 
+    bottom:0; 
+    width:100%; }
+</style>
+
+<body>
+    <header>
+  <h1>Kutoa Pesa</h1>
+</header>
+
+<div class="container">
+  <label for="network">Chagua Mtandao</label>
+  <select id="network">
+    <option value="">--Chagua Mtandao--</option>
+    <option value="Tigo">Tigo</option>
+    <option value="Airtel">Airtel</option>
+    <option value="Halotel">Halotel</option>
+  </select>
+
+  <div class="agent-code" id="agentCode"></div>
+
+  <a href="services.html" class="back-btn">⬅ Rudi Kwenye Services</a>
+</div>
+
+<footer>
+  <p>&copy; 2025 BrunoCashPoint. All rights reserved.</p>
+</footer>
+<script>
+  const networkSelect = document.getElementById('network');
+  const agentCode = document.getElementById('agentCode');
+
+  networkSelect.addEventListener('change', function() {
+    const map = {
+      Tigo: '805289',
+      Airtel: '635440',
+      Halotel: '32386'
+    };
+    const val = this.value;
+    if (map[val]) {
+      agentCode.innerHTML = `Agent Code ya ${val}: <strong>${map[val]}</strong>`;
+      agentCode.style.display = 'block';
+    } else {
+      agentCode.style.display = 'none';
+      agentCode.innerHTML = '';
+    }
+  });
+</script>
+
+
+
+    
+</body>
+</html>

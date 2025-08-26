@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kununua Vocha & Vifurushi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      color: red;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background: burlywood;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      display: none;
+      animation: drop 0.5s ease-out;
+    }
+
+    @keyframes drop {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .back-btn {
+      display: none;
+      width: 100%;
+      padding: 10px;
+      background: purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #222;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nunua Vocha & Vifurushi</h1>
+  </header>
+
+  <div class="container">
+    <!-- Drop Message -->
+    <div class="message" id="message">
+      ✅ Asante! Tafadhali njoo <strong>Ground Floor Hostel</strong> kufanya malipo.
+    </div>
+
+    <!-- Form -->
+    <form id="vochaForm">
+      <p>Karibu! Nunua vocha na vifurushi hapa.</p>
+
+      <label for="network">Chagua Mtandao</label>
+      <select id="network" required>
+        <option value="">--Chagua Mtandao--</option>
+        <option value="Tigo">Tigo</option>
+        <option value="Halotel">Halotel</option>
+        <option value="Airtel">Airtel</option>
+      </select>
+
+      <label for="phone">Namba ya Simu</label>
+      <input type="tel" id="phone" placeholder="07XXXXXXXX" required pattern="[0-9]{10}">
+
+      <label for="amount">Kiasi cha Pesa (Tsh)</label>
+      <input type="number" id="amount" placeholder="Mfano: 5000" required>
+
+      <label for="bundle">Chagua Kifurushi</label>
+      <select id="bundle" required>
+        <option value="">--Chagua Kifurushi--</option>
+        <option value="MB">MB</option>
+        <option value="SMS">SMS</option>
+        <option value="Dakika">Dakika</option>
+        <option value="SMS & Dakika">SMS & Dakika</option>
+        <option value="Both">SMS,Dakika+MB</option>
+      </select>
+
+      <button type="submit">Tuma Maombi</button>
+    </form>
+
+    <!-- Back Button -->
+    <a href="services.html" class="back-btn" id="backBtn">⬅ Rudi Kwenye Services</a>
+
+   
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BrunoCashPoint. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('vochaForm');
+    const message = document.getElementById('message');
+    const backBtn = document.getElementById('backBtn');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Onyesha ujumbe na back button
+      message.style.display = 'block';
+      backBtn.style.display = 'inline-block';
+
+      // Safisha form
+      form.reset();
+    });
+  </script>
+</body>
+</html>
